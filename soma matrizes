@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class SomaMatrizes {
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            int[][] matrizA = new int[3][3];
+            int[][] matrizB = new int[3][3];
+            int[][] matrizSoma = new int[3][3];
+            
+            System.out.println("Digite os valores para a Matriz A (3x3):");
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    System.out.print("Elemento [" + i + "][" + j + "]: ");
+                    matrizA[i][j] = scanner.nextInt();
+                }
+            }
+            
+            System.out.println("\nDigite os valores para a Matriz B (3x3):");
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    System.out.print("Elemento [" + i + "][" + j + "]: ");
+                    matrizB[i][j] = scanner.nextInt();
+                }
+            }
+            
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    matrizSoma[i][j] = matrizA[i][j] + matrizB[i][j];
+                }
+            }
+            
+            System.out.println("\nResultado da Soma (Matriz A + Matriz B):");
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    System.out.print(matrizSoma[i][j] + "\t");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
