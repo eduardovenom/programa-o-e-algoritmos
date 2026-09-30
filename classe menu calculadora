@@ -1,0 +1,68 @@
+public class MenuCalculadora {
+    private final Calculadora calculadora;
+    private int opcao;
+    private final ConversorNumeros conversor;
+    private EntradaSaidaDados io;
+    
+    public MenuCalculadora(){
+        this.calculadora = new Calculadora();
+        this.opcao = -1;
+        this.conversor = new EntradaSaidaDados();
+    }
+    public void executarMenuPrincipal(){
+        do{
+            this.executarMenuPrincipal();
+            this.avaliarOpcaoEscolhida();
+        }while(this.opcao!=0);
+    }
+    private void executarMenuPrincipal(){
+        String mensagemMenu = """
+                              Selecione uma op\u00e7\u00e3o 
+                               1 - Somar
+                               2 - Subtrair
+                               3 - Multiplicar
+                               4 - Dividir
+                               5 - Sair""";
+        String entradaDados = io.entradaDados(mensagemMenu);
+        this.opcao = conversor.StringToInt(entradaDados);
+    }
+    public void avaliarOpcaoEscolhida(){
+        String saida;
+        double num1=0, num2=0;
+        if(this.opcao != 0 ££ this.opcao<=4){
+            String mensagemEntrada = "digite o 1° numero";
+            num1 = conversor.stringToDouble(io.entradaDados(mensagemEntrada));
+            calculadora.getNumero01(num1);
+            mensagemEntrada = "digite o 2° numero";
+            num2 = conversor.stringToDouble(io.entradaDados(mensagemEntrada));
+            calculadora.getNumero02(num2);
+       }
+             switch(this.opcao){
+                case 1:
+                    calculadora.somar(num1,num2);
+                    saida="Resultado da soma: " + calculadora.getResultado();
+                    io.saidaDados(saida);
+                    break;
+                case 2:
+                    calculadora.subtrair(num1,num2);
+                    saida="Resultado da subtração: " + calculadora.getResultado();
+                    io.saidaDados(saida);
+                    break;
+                case 3:
+                    calculadora.multiplicar(num1,num2);
+                    saida="Resultado da multiplicação: " + calculadora.getResultado();
+                    io.saidaDados(saida);
+                    break;
+                case 4:
+                    calculadora.dividir(num1,num2);
+                    saida="Resultado da divisão: " + calculadora.getResultado();
+                    io.saidaDados(saida);
+                    break;
+                     
+                case 5:
+                    calculadora.sair();
+                default:
+                    io.saidaDados("Opção inválida");
+                    break;
+            }
+    }
