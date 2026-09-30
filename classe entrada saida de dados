@@ -1,0 +1,16 @@
+import javax.swing.JOptionPane;
+
+public class EntradaSaidaDados {
+
+    
+    }
+    public String entradadados(String mensagemEntrada){
+        return JOptionPane.showInputDialog(mensagemEntrada);
+    }
+    public void saidaDados(String mensagemSaida){
+        JOptionPane.showMessageDialog(null, mensagemSaida);
+    } 
+
+    String entradaDados(String mensagemEntrada) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
